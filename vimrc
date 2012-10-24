@@ -216,3 +216,4 @@ set imsearch=0
 "Bug that bothered seems to be known
 "https://code.google.com/p/macvim/issues/detail?id=377&can=1&q=font
 "http://blog.jjgod.org/2009/08/18/snow-leopard-vs-dell-lcd-displays/
+"http://osxdaily.com/2012/06/09/mac-screen-blurry-optimize-troubleshoot-font-smoothing-os-x/
