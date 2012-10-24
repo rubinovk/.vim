@@ -76,7 +76,7 @@ set backspace=indent,eol,start
 " Can be typed even faster than jj.
 :imap jk <Esc>
 " Y from cursor till the end of line
-:map Y y$
+:nnoremap Y y$
 
 " window navigation
 map <C-h> :wincmd h<CR>
