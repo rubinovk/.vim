@@ -142,6 +142,8 @@ set vb
 set hlsearch
 
 " fast search typing in the command line
+" I just need to enter pattern and substitute
+nnoremap ,/ :%s//g<Left><Left>
 " noremap ;' :%s:::cg<Left><Left><Left><Left> 
 " this one is slow because of my ; remap
 " noremap ;; :%s:::g<Left><Left><Left>
@@ -195,7 +197,7 @@ let g:LatexBox_viewer = 'skim'
 map <silent> <Leader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
 
 " mapping to Close the last matching open environment
-imap ]]	<Plug>LatexCloseCurEnv 
+" imap ]]	<Plug>LatexCloseCurEnv 
 
 map  <silent> <buffer> ¶ :call LatexBox_JumpToNextBraces(0)<CR>
 map  <silent> <buffer> § :call LatexBox_JumpToNextBraces(1)<CR>
