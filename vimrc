@@ -188,7 +188,7 @@ map <leader>nt :NERDTree<cr>
 "==========================  Mapping for Surround plugin shorcut
 nmap s ys
 vmap s S
-" use proper latex quotes
+" use proper latex quotes by calling: surround + '-'
 autocmd FileType tex let b:surround_45 = "``\r''"
 
 "=========================== setup for Latex-Box plugin
