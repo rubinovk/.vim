@@ -179,6 +179,9 @@ nmap <silent> ,cd :lcd %:h<CR>
 " Swap two words
 nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`':noh<CR>
 
+"========================== Setup Markdown to HTML "Markdown to HTML  
+nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>  
+
 "========================== shortcut for TComment toggle comment for selection
 map <leader>c <c-_><c-_>
 
