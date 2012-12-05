@@ -6,7 +6,7 @@ My [vimrc](https://github.com/rubinovk/.vim/blob/master/vimrc) is a compilation 
 
 ## Install Vim environment on a machine
 
-```
+```bash
 cd ~
 git clone http://github.com/rubinovk/.vim ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
@@ -19,7 +19,7 @@ git submodule update --init
 Each installed plugin that comes from github is a submodule in this project.  
 To updrade all the plugins just run: 
 
-```
+```bash
 cd ~/.vim
 git submodule foreach git pull origin master
 ```
