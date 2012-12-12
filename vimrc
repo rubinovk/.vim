@@ -33,6 +33,9 @@ set autowrite
 " Automatically read a file that has changed on disk
 set autoread
 
+" Store swp files in the directory:
+set directory=~/.vim/swap
+
 " use ; for entering commands Caution: it won't work for open hit-enter
 " dialogs, as in :ls
 nnoremap ; :
@@ -60,7 +63,8 @@ let g:zenburn_old_Visual=1
 let g:nenburn_alternate_Visual=1
 " let g:zenburn_alternate_Include = 1
 " if has("gui_running") "not needed any more as 256 terminal is used
-    colorscheme zenburn
+" colorscheme solarized
+colorscheme zenburn
 " endif
 set guifont=Inconsolata:h14
 
@@ -178,6 +182,10 @@ nmap <silent> ,cd :lcd %:h<CR>
 
 " Swap two words
 nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`':noh<CR>
+
+
+"========================== Setup SCSS file type automatically
+au BufRead,BufNewFile *.scss set filetype=scss
 
 "========================== Setup Markdown to HTML "Markdown to HTML  
 nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>  
