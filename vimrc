@@ -184,6 +184,9 @@ nmap <silent> ,cd :lcd %:h<CR>
 nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`':noh<CR>
 
 
+"========================== Setup MRU shortcut
+map <leader>f :MRU<CR>
+
 "========================== Setup SCSS file type automatically
 au BufRead,BufNewFile *.scss set filetype=scss
 
