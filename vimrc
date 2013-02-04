@@ -33,8 +33,9 @@ set autowrite
 " Automatically read a file that has changed on disk
 set autoread
 
-" Store swp files in the directory:
-set directory=~/.vim/swap
+" Store swp files in the directory: % causes conflicts for files with same
+" names
+" set directory=~/.vim/swap
 
 " use ; for entering commands Caution: it won't work for open hit-enter
 " dialogs, as in :ls
@@ -79,9 +80,7 @@ set backspace=indent,eol,start
 "map Esc to shift+space; can also use ctrl+[
 " :imap <S-Space> <Esc>
 " Can be typed even faster than jj.
-:imap jk <Esc>
-" Y from cursor till the end of line
-:nnoremap Y y$
+imap jk <Esc>
 
 " window navigation
 map <C-h> :wincmd h<CR>
@@ -90,8 +89,8 @@ map <C-k> :wincmd k<CR>
 map <C-l> :wincmd l<CR>
 
 " insert blank line
-map <S-Enter> O<Esc>
-map <CR> o<Esc>
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
 nmap <C-CR> i<CR><Esc>
 
 " easy navigation in wrapped lines
@@ -136,9 +135,9 @@ noremap <silent> ,rw :setlocal fo-=tan<CR>
 set cpt=.,w,b
 
 "remap completion for file names
-:inoremap <c-f> <c-x><c-f>
+inoremap <c-f> <c-x><c-f>
 "remap completion for lines in the file
-:inoremap <c-l> <c-x><c-l>
+inoremap <c-l> <c-x><c-l>
 
 " set visual bell - disable the beeping
 set vb
@@ -183,9 +182,19 @@ nmap <silent> ,cd :lcd %:h<CR>
 " Swap two words
 nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`':noh<CR>
 
+"========================== Setup YankRing
+" Y from cursor till the end of line
+" nnoremap Y y$
+" for behavior to be consistent remap Y through YankRing
+nnoremap <silent> Y :<C-U>YRYankCount 'y$'<CR>
+
+"========================== Setup bufexplorer
+" original shortcut for BufExp is ,be
+noremap <silent> ,bb :BufExplorer<CR>
+let g:bufExplorerDetailedHelp=1
 
 "========================== Setup MRU shortcut
-map <leader>f :MRU<CR>
+noremap <silent> ,f :MRU<CR>
 
 "========================== Setup SCSS file type automatically
 au BufRead,BufNewFile *.scss set filetype=scss
@@ -194,10 +203,13 @@ au BufRead,BufNewFile *.scss set filetype=scss
 nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>  
 
 "========================== shortcut for TComment toggle comment for selection
-map <leader>c <c-_><c-_>
+" somehow there's a delay for this mapping :(
+map <leader>cc <c-_><c-_>
+" Use secondary binding of plugin instead: <leader>__
 
 "========================== shortcut for NERDTree invocation
-map <leader>nt :NERDTree<cr>
+nmap <leader>nt :NERDTree<cr>
+nmap <leader>nf :NERDTreeFind<cr>
 
 "==========================  Mapping for Surround plugin shorcut
 nmap s ys
@@ -223,12 +235,22 @@ imap <silent> <buffer> § <C-R>=LatexBox_JumpToNextBraces(1)<CR>
 nmap <silent> ,ev :e $MYVIMRC<CR>
 nmap <silent> ,sv :so $MYVIMRC<CR>
 
-"Russian keyboard mapping support
-set keymap=russian-jcukenwin
+"========================== Russian keyboard mapping support 
+" the problem is that mappings for commands don't work any more
+
+" set keymap=russian-jcukenwin
+set keymap=russian-jcukenmac
 set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 "set langmap=йцукенгшщзхъфывапролджэячсмитьбю/ЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ/;qwertyuiop\[\]asdfghjkl\;\'zxcvbnm\,\./QWERTYUIOP\{\}ASDFGHJKL\:\"/ZXCVBNM\<\>\?/
 set iminsert=0
 set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
+
+"another solution to bluntly trigger eng layout when in normal mode
+" this solution is slow and causes delay when entering command line or typing
+" colon.
+" imap :!setxkbmap us:!setxkbmap us,ru
+" nmap :!setxkbmap us:!setxkbmap us,ru
 
 "Bug that bothered seems to be known
 "https://code.google.com/p/macvim/issues/detail?id=377&can=1&q=font
