@@ -82,6 +82,9 @@ set backspace=indent,eol,start
 " Can be typed even faster than jj.
 imap jk <Esc>
 
+" try new change paste/replace experience word-wise
+nmap <silent> cp "_cw<C-R>"<Esc>
+
 " window navigation
 map <C-h> :wincmd h<CR>
 map <C-j> :wincmd j<CR>
@@ -142,6 +145,7 @@ inoremap <c-l> <c-x><c-l>
 " set visual bell - disable the beeping
 set vb
 
+set incsearch
 " highlight search terms
 set hlsearch
 
@@ -230,6 +234,10 @@ map  <silent> <buffer> ¶ :call LatexBox_JumpToNextBraces(0)<CR>
 map  <silent> <buffer> § :call LatexBox_JumpToNextBraces(1)<CR>
 imap <silent> <buffer> ¶ <C-R>=LatexBox_JumpToNextBraces(0)<CR>
 imap <silent> <buffer> § <C-R>=LatexBox_JumpToNextBraces(1)<CR>
+
+" Latex objects are defined with textobj-user plugin:
+" \command{} can be matched with aC and iC
+" Definition is located in ./bundle/text-objects/plugin/latexobj.vim
 
 " Edit the vimrc file 
 nmap <silent> ,ev :e $MYVIMRC<CR>
