@@ -7,9 +7,6 @@
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = https://github.com/msanders/snipmate.vim.git
-[submodule "bundle/tcomment_vim"]
-	path = bundle/tcomment_vim
-	url = https://github.com/vim-scripts/tComment.git
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
@@ -37,3 +34,6 @@
 [submodule "bundle/custom-text-obj"]
 	path = bundle/custom-text-obj
 	url = git://github.com/kana/vim-textobj-user.git
+[submodule "bundle/visual-star-search"]
+	path = bundle/visual-star-search
+	url = git://github.com/nelstrom/vim-visual-star-search.git
