@@ -51,6 +51,15 @@ set showcmd
 " Switch syntax highlighting on
 syntax on
 
+" Show “invisible” characters when
+" 'set list!' is invoked
+set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_
+
+" better tab experience in Vim's command line
+set wildmenu
+set wildignorecase
+set wildignore+=*/tmp/*,*.so,*.swp
+
 " When spell checking show only 15 suggestions
 set spellsuggest=15
 
@@ -95,6 +104,10 @@ map <C-l> :wincmd l<CR>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 nmap <C-CR> i<CR><Esc>
+
+" To be able to undo these types of deletion in Insert mode.
+inoremap <C-w> <C-g>u<C-w>
+inoremap <C-u> <C-g>u<C-u>
 
 " easy navigation in wrapped lines
 nnoremap j gj
@@ -145,7 +158,7 @@ inoremap <c-l> <c-x><c-l>
 " set visual bell - disable the beeping
 set vb
 
-set incsearch
+" set incsearch
 " highlight search terms
 set hlsearch
 
@@ -228,13 +241,23 @@ let g:LatexBox_viewer = 'skim'
 map <silent> <Leader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
 
 " mapping to Close the last matching open environment
-" imap ]]	<Plug>LatexCloseCurEnv 
+imap ]]	<Plug>LatexCloseCurEnv 
+" Wrap the current selection in a LaTeX command. 
+vmap ,W <Plug>LatexWrapSelection
+" Wrap the current selection in an environment.
+vmap ,We <Plug>LatexEnvWrapSelection
 
-map  <silent> <buffer> ¶ :call LatexBox_JumpToNextBraces(0)<CR>
-map  <silent> <buffer> § :call LatexBox_JumpToNextBraces(1)<CR>
-imap <silent> <buffer> ¶ <C-R>=LatexBox_JumpToNextBraces(0)<CR>
-imap <silent> <buffer> § <C-R>=LatexBox_JumpToNextBraces(1)<CR>
 
+" map  <silent> <buffer> ¶ :call LatexBox_JumpToNextBraces(0)<CR>
+" map  <silent> <buffer> § :call LatexBox_JumpToNextBraces(1)<CR>
+" imap <silent> <buffer> ¶ <C-R>=LatexBox_JumpToNextBraces(0)<CR>
+" imap <silent> <buffer> § <C-R>=LatexBox_JumpToNextBraces(1)<CR>
+
+
+"========================== vim-abolish plugin
+" see folder .vim/after/plugin/abolish.vim for abbreviations
+
+"========================== textobj-user plugin
 " Latex objects are defined with textobj-user plugin:
 " \command{} can be matched with aC and iC
 " Definition is located in ./bundle/text-objects/plugin/latexobj.vim
