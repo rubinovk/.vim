@@ -2,7 +2,7 @@ if !exists(":Abolish")
   finish
 endif
 
-Abolish {,u,i}tc{,s} {,unit,integration} test case{,s}
+Abolish {,u,i}{t}c{,s} {,unit,integration} {test} case{,s}
 " Abolish afterword{,s}                         afterward{}
 " Abolish anomol{y,ies}                         anomal{}
 " Abolish austrail{a,an,ia,ian}                 austral{ia,ian}

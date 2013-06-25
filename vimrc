@@ -259,8 +259,9 @@ vmap ,We <Plug>LatexEnvWrapSelection
 
 "========================== textobj-user plugin
 " Latex objects are defined with textobj-user plugin:
-" \command{} can be matched with aC and iC
-" Definition is located in ./bundle/text-objects/plugin/latexobj.vim
+" \command{} can be matched with ac and ic
+" Old Definition is located in ./bundle/text-objects/plugin/latexobj.vim
+" Definition is located in ./after/plugin/textobj/latexobj.vim
 
 " Edit the vimrc file 
 nmap <silent> ,ev :e $MYVIMRC<CR>
