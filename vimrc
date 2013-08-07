@@ -235,9 +235,13 @@ vmap s S
 autocmd FileType tex let b:surround_45 = "``\r''"
 
 "=========================== setup for Latex-Box plugin
-let g:LatexBox_latexmk_options = '-pvc'
+"
+" instead of old setting option '-pvc'
+let g:LatexBox_latexmk_preview_continuously = '1'
+let g:LatexBox_latexmk_async = '1'
 let g:LatexBox_output_type = 'pdf'
 let g:LatexBox_viewer = 'skim'
+let g:LatexBox_quickfix = '2'
 map <silent> <Leader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
 
 " mapping to Close the last matching open environment
@@ -262,6 +266,11 @@ vmap ,We <Plug>LatexEnvWrapSelection
 " \command{} can be matched with ac and ic
 " Old Definition is located in ./bundle/text-objects/plugin/latexobj.vim
 " Definition is located in ./after/plugin/textobj/latexobj.vim
+
+
+"========================== LanguageTool plugin
+let g:languagetool_jar='/Applications/LanguageTool-2.2/languagetool-commandline.jar'
+
 
 " Edit the vimrc file 
 nmap <silent> ,ev :e $MYVIMRC<CR>
