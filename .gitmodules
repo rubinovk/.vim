@@ -24,7 +24,7 @@
 	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
-	url = httt://github.com/altercation/vim-colors-solarized.git
+	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/scss-syntax.vim"]
 	path = bundle/scss-syntax.vim
 	url = https://github.com/cakebaker/scss-syntax.vim.git
