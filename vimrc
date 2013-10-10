@@ -217,12 +217,17 @@ noremap <silent> ,f :MRU<CR>
 au BufRead,BufNewFile *.scss set filetype=scss
 
 "========================== Setup Markdown to HTML "Markdown to HTML  
-nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>  
+nmap <leader>md :%!/usr/local/bin/markdown --html4tags <cr>  
 
 "========================== shortcut for TComment toggle comment for selection
 " somehow there's a delay for this mapping :(
 map <leader>cc <c-_><c-_>
 " Use secondary binding of plugin instead: <leader>__
+" 
+" Html comments for Markdown: 
+call tcomment#DefineType('mkd', '<!-- %s --> ') 
+call tcomment#DefineType('mkd_inline',      g:tcommentInlineXML)
+call tcomment#DefineType('mkd_block',       g:tcommentBlockXML ) 
 
 "========================== shortcut for NERDTree invocation
 nmap <leader>nt :NERDTree<cr>
@@ -261,6 +266,9 @@ vmap ,We <Plug>LatexEnvWrapSelection
 "========================== vim-abolish plugin
 " see folder .vim/after/plugin/abolish.vim for abbreviations
 
+" Vim markdown syntax highlighting plugin
+let g:vim_markdown_folding_disabled=1
+
 "========================== textobj-user plugin
 " Latex objects are defined with textobj-user plugin:
 " \command{} can be matched with ac and ic
@@ -271,10 +279,40 @@ vmap ,We <Plug>LatexEnvWrapSelection
 "========================== LanguageTool plugin
 let g:languagetool_jar='/Applications/LanguageTool-2.2/languagetool-commandline.jar'
 
+"========================== Syntax highlighting for LLVM
+" Original Plugins are located in /Users/rubinovk/tools/LLVM/llvm-src/utils/vim
+
+augroup filetype
+    au! BufRead,BufNewFile *.ll     set filetype=llvm
+augroup END
+
+augroup filetype
+    au! BufRead,BufNewFile *.td     set filetype=tablegen
+augroup END
+
+" LLVM Makefile highlighting mode
+augroup filetype
+    au! BufRead,BufNewFile *Makefile*     set filetype=make
+augroup END
+
+"=== LLVM end
 
 " Edit the vimrc file 
 nmap <silent> ,ev :e $MYVIMRC<CR>
 nmap <silent> ,sv :so $MYVIMRC<CR>
+
+"========================== Printing with syntax highlighting
+" Invoke as:
+" :Hardcopy > /tmp/out.ps
+
+" command! -nargs=* Hardcopy call DoMyPrint('<args>')
+" function DoMyPrint(args)
+"   let colorsave=g:colors_name
+"   color print
+"   exec 'hardcopy '.a:args
+"   exec 'color '.colorsave
+" endfunction
+
 
 "========================== Russian keyboard mapping support 
 " the problem is that mappings for commands don't work any more
