@@ -14,6 +14,12 @@ cd ~/.vim
 git submodule update --init
 ```
 
+## Add new bundles
+
+```bash
+git submodule add http://github.com/foo.git bundle/foo
+```
+
 ## Upgrade all bundled plugins
 
 Each installed plugin that comes from github is a submodule in this project.  
