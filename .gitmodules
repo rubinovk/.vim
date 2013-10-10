@@ -52,6 +52,3 @@
 [submodule "bundle/mru"]
 	path = bundle/mru
 	url = https://github.com/vim-scripts/mru.vim.git
-[submodule "Zenburn"]
-	path = Zenburn
-	url = https://github.com/jnurmine/Zenburn.git
