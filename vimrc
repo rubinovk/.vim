@@ -30,6 +30,9 @@ let maplocalleader = ","
 " set autowrite for actions
 set autowrite
 
+"keep Finder labels
+set backupcopy=yes
+
 " Automatically read a file that has changed on disk
 set autoread
 
@@ -66,16 +69,22 @@ set spellsuggest=15
 " Set up background and colorscheme for MacVim and terminal version
 set t_Co=256
 set background=dark
-" set transparency=0 "conflicts with terminal
-let g:zenburn_force_dark_Background=1
-"let g:zenburn_high_Contrast = 1
-let g:zenburn_old_Visual=1
-let g:nenburn_alternate_Visual=1
-" let g:zenburn_alternate_Include = 1
-" if has("gui_running") "not needed any more as 256 terminal is used
-" colorscheme solarized
-colorscheme zenburn
-" endif
+
+syntax enable
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+colorscheme solarized
+
+" " set transparency=0 "conflicts with terminal
+" let g:zenburn_force_dark_Background=1
+" "let g:zenburn_high_Contrast = 1
+" let g:zenburn_old_Visual=1
+" let g:nenburn_alternate_Visual=1
+" " let g:zenburn_alternate_Include = 1
+" " if has("gui_running") "not needed any more as 256 terminal is used
+" " colorscheme solarized
+" colorscheme zenburn
+" " endif
 set guifont=Inconsolata:h14
 
 " Enable file type detection and do language-dependent indenting.
