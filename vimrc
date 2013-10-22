@@ -75,6 +75,9 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
 
+"see help tips: h xterm-screens
+set t_ti= t_te=
+
 " " set transparency=0 "conflicts with terminal
 " let g:zenburn_force_dark_Background=1
 " "let g:zenburn_high_Contrast = 1
