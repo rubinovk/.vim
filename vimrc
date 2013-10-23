@@ -18,6 +18,13 @@ if has("gui_running")
     set guioptions-=T
 endif 
 
+if has('mac')
+    "see help tips: h xterm-screens
+    set t_ti= t_te=
+elseif has('unix')
+    " put what's necessary
+endif
+
 set nocompatible
 
 " Make sure that unsaved buffers that are to be put in the background are
@@ -75,8 +82,6 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
 
-"see help tips: h xterm-screens
-set t_ti= t_te=
 
 " " set transparency=0 "conflicts with terminal
 " let g:zenburn_force_dark_Background=1
