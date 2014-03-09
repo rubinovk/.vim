@@ -55,3 +55,6 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/vim-exchange"]
+	path = bundle/vim-exchange
+	url = git://github.com/tommcdo/vim-exchange.git
