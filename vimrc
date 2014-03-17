@@ -215,6 +215,7 @@ nmap <silent> ,cd :lcd %:h<CR>
 
 " Swap two words
 nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`':noh<CR>
+" now can use vim-exchange plugin to swap pieces of code with cx command!
 
 "========================== Setup YankRing
 " Y from cursor till the end of line
@@ -233,8 +234,11 @@ noremap <silent> ,f :MRU<CR>
 "========================== Setup SCSS file type automatically
 au BufRead,BufNewFile *.scss set filetype=scss
 
-"========================== Setup Markdown to HTML "Markdown to HTML  
+"========================== Setup Markdown to HTML
 nmap <leader>md :%!/usr/local/bin/markdown --html4tags <cr>  
+
+"========================== Setup Pandoc Markdown to PDF  
+nmap <leader>pd :!pandoc % -o %.pdf <cr>  
 
 "========================== shortcut for TComment toggle comment for selection
 " somehow there's a delay for this mapping :(
@@ -263,7 +267,7 @@ let g:LatexBox_latexmk_preview_continuously = '1'
 let g:LatexBox_latexmk_async = '1'
 let g:LatexBox_output_type = 'pdf'
 let g:LatexBox_viewer = 'skim'
-let g:LatexBox_quickfix = '2'
+let g:LatexBox_quickfix = '0'
 map <silent> <Leader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
 
 " mapping to Close the last matching open environment
