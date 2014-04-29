@@ -76,6 +76,7 @@ set spellsuggest=15
 " Set up background and colorscheme for MacVim and terminal version
 set t_Co=256
 set background=dark
+" Use vim-unimpared to quickly switch background 'cob'
 
 syntax enable
 let g:solarized_termcolors=256
@@ -163,6 +164,7 @@ noremap <silent> ,r :setlocal fo+=tan<CR>
 noremap <silent> ,rw :setlocal fo-=tan<CR>
 " command! -nargs=* Wrapon set fo+=tan 
 " command! -nargs=* Wrapout set fo-=tan
+" It's possible to use vim-unimpared to toggle wrapping
 
 " setup autocompletion for i_CTRL_N/P
 set cpt=.,w,b
@@ -217,6 +219,12 @@ nmap <silent> ,cd :lcd %:h<CR>
 nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`':noh<CR>
 " now can use vim-exchange plugin to swap pieces of code with cx command!
 
+
+"========================== Setup vim-session
+" persist sessions when CMD+Q on Mac
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
+
 "========================== Setup YankRing
 " Y from cursor till the end of line
 " nnoremap Y y$
@@ -233,6 +241,9 @@ noremap <silent> ,f :MRU<CR>
 
 "========================== Setup SCSS file type automatically
 au BufRead,BufNewFile *.scss set filetype=scss
+
+"========================== Setup SMT2 file type automatically
+au BufRead,BufNewFile *.smt2 set filetype=smt-lib 
 
 "========================== Setup Markdown to HTML
 nmap <leader>md :%!/usr/local/bin/markdown --html4tags <cr>  
