@@ -112,6 +112,10 @@ imap jk <Esc>
 " try new change paste/replace experience word-wise
 nmap <silent> cp "_cw<C-R>"<Esc>
 
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+
 " window navigation
 map <C-h> :wincmd h<CR>
 map <C-j> :wincmd j<CR>
@@ -229,7 +233,9 @@ let g:session_autoload = 'yes'
 " Y from cursor till the end of line
 " nnoremap Y y$
 " for behavior to be consistent remap Y through YankRing
-nnoremap <silent> Y :<C-U>YRYankCount 'y$'<CR>
+function! YRRunAfterMaps()
+    nnoremap Y   :<C-U>YRYankCount 'y$'<CR>
+endfunction
 
 "========================== Setup bufexplorer
 " original shortcut for BufExp is ,be
@@ -243,7 +249,11 @@ noremap <silent> ,f :MRU<CR>
 au BufRead,BufNewFile *.scss set filetype=scss
 
 "========================== Setup SMT2 file type automatically
+"
 au BufRead,BufNewFile *.smt2 set filetype=smt-lib 
+
+"========================== Setup Jimple file type automatically
+au BufRead,BufNewFile *.jimple set filetype=java 
 
 "========================== Setup Markdown to HTML
 nmap <leader>md :%!/usr/local/bin/markdown --html4tags <cr>  
