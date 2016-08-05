@@ -94,7 +94,8 @@ colorscheme solarized
 " " colorscheme solarized
 " colorscheme zenburn
 " " endif
-set guifont=Inconsolata:h14
+" set guifont=Inconsolata:h14
+set guifont=Monaco:h12
 
 " Enable file type detection and do language-dependent indenting.
 if has("autocmd")
@@ -113,8 +114,9 @@ imap jk <Esc>
 nmap <silent> cp "_cw<C-R>"<Esc>
 
 " Yank text to the OS X clipboard
-noremap <leader>y "*y
-noremap <leader>yy "*Y
+" noremap <leader>y "*y
+" noremap <leader>yy "*Y
+set clipboard=unnamed 
 
 " window navigation
 map <C-h> :wincmd h<CR>
@@ -224,6 +226,21 @@ nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`':noh<CR>
 " now can use vim-exchange plugin to swap pieces of code with cx command!
 
 
+"========================== Setup Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height = 5
+
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!' 
+
+
 "========================== Setup vim-session
 " persist sessions when CMD+Q on Mac
 let g:session_autosave = 'yes'
@@ -285,7 +302,8 @@ autocmd FileType tex let b:surround_45 = "``\r''"
 "
 " instead of old setting option '-pvc'
 let g:LatexBox_latexmk_preview_continuously = '1'
-let g:LatexBox_latexmk_async = '1'
+" Try to disable async to alleviate main file problem https://github.com/LaTeX-Box-Team/LaTeX-Box/issues/220
+" let g:LatexBox_latexmk_async = '1'
 let g:LatexBox_output_type = 'pdf'
 let g:LatexBox_viewer = 'skim'
 let g:LatexBox_quickfix = '0'

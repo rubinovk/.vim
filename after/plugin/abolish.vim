@@ -3,6 +3,7 @@ if !exists(":Abolish")
 endif
 
 Abolish {,u,i}{t}c{,s} {,unit,integration} {test} case{,s}
+Abolish {s}w {software}
 Abolish {s}yex {symbolic} execution
 " Abolish afterword{,s}                         afterward{}
 " Abolish anomol{y,ies}                         anomal{}
