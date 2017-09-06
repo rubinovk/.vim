@@ -6,7 +6,6 @@
 let g:pathogen_disabled = []
 call add(g:pathogen_disabled, 'XPTemplate')
 call add(g:pathogen_disabled, 'LatexFormatter')
-call add(g:pathogen_disabled, 'supertab')
 call add(g:pathogen_disabled, 'vim-space') " it messes up some bindings :(
 
 " Invoke pathogen plugin
